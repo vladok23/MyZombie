@@ -218,31 +218,9 @@ class MyZombie extends PluginBase implements Listener{
 		
 		if($zom['time'] >= 0){
 		$zom['time'] = $zom['time'] -1 ;
-		$xxx =0.15;
-				$zzz =0.15;
-				$posz1 = new Vector3 ($zo->getX() + $xxx, $zo->getY(), $zo->getZ());
-					if($p->distance($pos) > $p->distance($posz1)){
-					$xxx =0.15;
-					}
-					if($p->distance($pos) == $p->distance($posz1)){
-					$xxx =0;
-					}
-					if($p->distance($pos) < $p->distance($posz1)){
-					$xxx =-0.15;
-					}
-				$posz2 = new Vector3 ($zo->getX()+ $xxx, $zo->getY(), $zo->getZ() + $zzz);
-					if($p->distance($pos) < $p->distance($posz2)){
-					$zzz =-0.15;
-					}
-					if($p->distance($pos) == $p->distance($posz2)){
-					$zzz =0;
-					}
-					if($p->distance($pos) > $p->distance($posz2)){
-					$zzz =0.15;
-					}
-					//我爱新算法。。
+
 		//旧的算法
-		/*
+		
 		if($zom['left'] <= -5){
 		$zx =$zo->getX();
 		$zom['front'] = rand(-5,15);
@@ -263,7 +241,7 @@ class MyZombie extends PluginBase implements Listener{
 		if($zom['front'] >= 5){
 		$zz =$zo->getZ()- 0.15;
 		}
-		*/
+		
 		for($i1 = 0; $i1 <= 100; $i1 ++){
 					$pos = new Vector3 ( $zx , 100 - $i1 , $zz);
 					$block = $p->getLevel()->getBlock ( $pos );
