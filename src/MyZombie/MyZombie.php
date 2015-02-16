@@ -191,40 +191,6 @@ class MyZombie extends PluginBase implements Listener{
 		}}
 	
 	public function ZombieGenerate() {
-	/*
-	foreach ( $this->getServer ()->getOnlinePlayers () as $p ) {
-			for($i1 = - 1; $i1 <= 10; $i1 ++)
-				for($b1 = - 1; $b1 <= 10; $b1 ++) {
-					$pos = new Vector3 ( $p->x + $i1, $p->y, $p->z + $b1 );
-					$block = $this->getServer ()->getDefaultLevel ()->getBlock ( $pos );
-					if ($block->getID () == Item::GLOWSTONE  or $block->getID () == Item::TORCH or $block->getID () == Item::FIRE ) {
-					var_dump($block->getID ());
-					var_dump($p->distance($pos));
-				}else{
-				$pos = $p->getPosition();
-				$this->spawnTo($p, $pos);
-				
-				
-				/*
-				//$zom=new Eneity ($xxx, 1 ,$zzz);
-				$pos = $p->getPosition();
-				$chunk = $p->getLevel()->getChunk($pos->x -20, $pos->z -20, true);
-				//var_dump($chunk);
-						$Zombie = new Zombie($chunk,$this->nbt);
-					
-					$x = rand(0,32) + $pos->x -10;
-					$y = rand(5,15) + $pos->y;
-					$z = rand(0,32) + $pos->z -10;
-					$pos = new Vect or3($x,$y,$z);
-					$Zombie->setPosition($pos);
-					$Zombie->spawnToAll();
-				//var_dump($p->getLevel()->getEntities());
-				//$p->getLevel()->addEntity("Zombie");
-				*/
-				}
-		}
-		}
-		*/
 		}
 		
 		
