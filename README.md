@@ -3,8 +3,6 @@ ZombieAI For PM1.4
 I Can't upload the last version because.....you certainly knows it.
 so wish you have a good time with it~
 The Newest version is now 2.8.4
-2.0.0为优化移动的版本，不包括仇恨lol
-2.0.0 only contains zombie move and didn't contain hate mode
 对于中国的小学生
 我特意用中文再次说明
 1.禁止转载。
@@ -13,3 +11,4 @@ The Newest version is now 2.8.4
 4.禁止出售
 5.修改不得改变作者
 6.最终解释权归Zzm317所有！
+为了防止小学生，我删除了生成部分2333333
