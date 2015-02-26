@@ -57,18 +57,18 @@ class MyZombie extends PluginBase implements Listener{
 		] ), 1 );
 		$this->getServer ()->getScheduler ()->scheduleRepeatingTask ( new CallbackTask ( [ 
 				$this,
-				"ZombieFire" 
-		] ), 40);
-		$this->getServer ()->getScheduler ()->scheduleRepeatingTask ( new CallbackTask ( [ 
-				$this,
 				"ZombieYaw"
 		] ), 1 );
-	/*	$this->getServer ()->getScheduler ()->scheduleRepeatingTask ( new CallbackTask ( [ 
+		$this->getServer ()->getScheduler ()->scheduleRepeatingTask ( new CallbackTask ( [ 
 				$this,
 				"ZombieGenerate" 
 		] ), 20 * $this->birth);
-		I Delete it!
-		*/
+		$this->getServer ()->getScheduler ()->scheduleRepeatingTask ( new CallbackTask ( [ 
+				$this,
+				"ZombieFire" 
+		] ), 40);
+		
+						
 		$this->getLogger()->info("MyZombie Loaded !!!!");
 	} 
 
@@ -672,7 +672,39 @@ class MyZombie extends PluginBase implements Listener{
 			}
 		}
 	}
-
+	
+	public function ZombieGenerate() {//僵尸生成
+		foreach ($this->getServer()->getOnlinePlayers() as $p) {
+			//$this->getLogger()->info("开始生成僵尸");
+			$level = $p->getLevel();
+			if ($level->getTime() >= 14000) {  //是夜晚
+			$v3 = new Vector3($p->getX() + mt_rand(-$this->birth_r,$this->birth_r), $p->getY(), $p->getZ() + mt_rand(-$this->birth_r,$this->birth_r));
+			for ($y0 = $p->getY()-10; $y0 <= $p->getY()+10; $y0++) {
+				$v3->y = $y0;
+				if ($level->getBlock($v3)->getID() != 0) {
+					$v3_1 = $v3;
+					$v3_1->y = $y0 + 1;
+					$v3_2 = $v3;
+					$v3_2->y = $y0 + 2;
+					if ($level->getBlock($v3_1)->getID() == 0 and $level->getBlock($v3_2)->getID() == 0) {  //找到地面
+						if ($this->getLight($level,$v3) == 0) {
+							$chunk = $level->getChunk($v3->x >> 4, $v3->z >> 4, false);
+							$nbt = $this->getNBT($v3);
+							$zo = new Zombie($chunk,$nbt);
+							$zo->setPosition($v3);
+							$zo->spawnToAll();
+							//$zo = Entity::createEntity("Zombie", $level->getChunk($v3->x >> 4, $v3->z >> 4, false), $nbt, $level);
+							//$zo->spawnToAll();
+							//$this->getLogger()->info("生成了一只僵尸");
+							break;
+						}
+					}
+				}
+			}
+			}
+		}
+	}
+	
 	public function ZombieDamage(EntityDamageEvent $event){//僵尸击退修复
 	if($event instanceof EntityDamageByEntityEvent){
 	$p = $event->getDamager();
