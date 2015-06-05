@@ -16,5 +16,6 @@ ZombieAI For PM1.4 & 1.5
 - 6.最终解释权归Zzm317所有！
 
 =========================================
+Notice/注意
 -Because of the users in China Doesn't Follow The Rule, So This Plugin Will Never Be Updated For FREE! 
 -由于中国的使用者不遵守约定，本插件不再发布免费的更新。
